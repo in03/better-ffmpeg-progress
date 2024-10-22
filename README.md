@@ -63,7 +63,7 @@ process = FfmpegProcess(["ffmpeg", "-i", "input.mp4", "-c:a", "libmp3lame", "out
 
 # Use the run method to run the FFmpeg command.
 process.run(
-    output_file="ffmpeg_output.txt",
+    log_file="ffmpeg_output.txt",
     progress_bar_description="Converting file...",
     progress_handler=handle_progress_info,
     success_handler=handle_success,
@@ -140,3 +140,6 @@ The `run` method takes the following **optional** arguments:
 [20/10/2024]
 - [v2.1.9] Do not clear the terminal before showing the progress bar.
 - [v2.2.0] Add the ability to set a custom description for the progress bar.
+
+[22/10/2020]
+- [v2.2.1] Only create a log file if the `log_file` parameter is specified and always create a log file if the FFmpeg process fails.
